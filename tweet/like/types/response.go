@@ -3,7 +3,8 @@ package types
 import "github.com/michimani/gotwi/resources"
 
 type ListUsersOutput struct {
-	Data     []resources.User `json:"data"`
+	Data     []resources.User         `json:"data"`
+	Meta     resources.PaginationMeta `json:"meta"`
 	Includes struct {
 		Tweets []resources.Tweet `json:"tweets,omitempty"`
 		Places []resources.Place `json:"places,omitempty"`
@@ -18,8 +19,8 @@ func (r *ListUsersOutput) HasPartialError() bool {
 }
 
 type ListOutput struct {
-	Data     []resources.Tweet `json:"data"`
-	Meta     resources.PaginationMeta
+	Data     []resources.Tweet        `json:"data"`
+	Meta     resources.PaginationMeta `json:"meta"`
 	Includes struct {
 		Tweets []resources.Tweet `json:"tweets,omitempty"`
 		Places []resources.Place `json:"places,omitempty"`
